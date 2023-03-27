@@ -1,25 +1,67 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
 
+
+
+
+
 function App() {
+  const[formValues,setFormValues]=useState({
+    email:"email",
+    firstName:"jaggu",
+    lastName:"singh"
+  })
+
+  const handleSubmit=(event)=>{
+    event.preventDefault()
+  }
+  const handleOnChange = (event) => {
+    console.log("Change..");
+
+    const { name, value } = event.target;
+
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <form onSubmit={handleSubmit}>
+    <div className='input-group'>
+      <label htmlFor="">Email</label>
+      
+      { <input required
+      type="email"
+      name="email"
+      id=""
+      onChange={handleOnChange}
+      value={formValues.email}/> }
+
+      </div>
+      <div className='input-group'>
+        <label htmlFor=''>firstName</label>
+         
+        <input  onChange={handleOnChange}
+          value={formValues.firstName}
+          type="text"
+          name="firstName"
+          id=""
+          
+        />
+      </div>
+      <div className='input-group'>
+        <lable htmlFor="">lastName</lable>
+        <input   onChange={handleOnChange}
+          value={formValues.lastName}
+          type="text"
+          name="lastName"
+          id=""/>
+      </div>
+      <div className='input-group'><button>submit</button></div>
+    </form>
+  )
 }
 
 export default App;

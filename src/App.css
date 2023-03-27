@@ -1,3 +1,18 @@
+body{
+  padding:10px;
+  margin: 40px;
+  gap:20px;
+  display: flex;
+}
+.stylebutton{
+  border: 2ram;
+  border-color: black;
+  height: 40px;
+  width: 100px;
+  display: flexbox;
+  border: radius 0inc;
+  display: flex;
+}
 .App {
   text-align: center;
 }
